@@ -10,6 +10,7 @@
     "chart.js": "^4.4.3",
     "d3": "^7.9.0",
     "plotly.js": "^2.33.0",
+    "plotly.js-dist": "^2.33.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",

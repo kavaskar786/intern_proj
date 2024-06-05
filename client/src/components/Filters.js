@@ -3,7 +3,7 @@ import React from 'react';
 
 const Filters = ({ setFilters }) => {
   return (
-    <div>
+    <div className="filter-container">
       <label>
         End Year:
         <input type="number" onChange={(e) => setFilters(prev => ({ ...prev, year: e.target.value }))} />
