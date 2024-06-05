@@ -9,8 +9,23 @@ import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
 import Heatmap from './components/Heatmap';
 import BubbleChart from './components/BubbleChart';
+import BoxPlot from './components/BoxPlot';
+import ViolinPlot from './components/ViolinPlot';
+import SunburstChart from './components/SunburstChart';
+import Histogram from './components/Histogram';
+import ScatterPlot3D from './components/ScatterPlot3D';
+import SurfacePlot3D from './components/SurfacePlot3D';
+import BubbleChart3D from './components/BubbleChart3D';
+import LinePlot3D from './components/LinePlot3D';
+import MeshPlot3D from './components/MeshPlot3D';
+import ContourPlot3D from './components/ContourPlot3D';
+import VolumePlot3D from './components/VolumePlot3D';
+import Histogram3D from './components/Histogram3D';
+import ScatterPlotColorScale3D from './components/ScatterPlotColorScale3D';
+import BarPlot3D from './components/BarPlot3D';
+import ParallelCoordinates3D from './components/ParallelCoordinates3D';
+import BubbleChartSizeColor3D from './components/BubbleChartSizeColor3D';
 import './styles.css';
-
 const App = () => {
   const [data, setData] = useState([]);
   const [filters, setFilters] = useState({});
@@ -39,6 +54,12 @@ const App = () => {
       <div className="chart-container">
         <D3Chart data={filteredData} />
         <PlotlyChart data={filteredData} />
+        <ViolinPlot data={filteredData} />
+        <SunburstChart data={filteredData} />
+        <Histogram data={filteredData} />
+        <BubbleChart3D data={filteredData} />
+        <Histogram3D data={filteredData} />
+        <ScatterPlotColorScale3D data={filteredData} />
       </div>
     </div>
   );
