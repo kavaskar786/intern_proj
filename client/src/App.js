@@ -25,7 +25,42 @@ import ScatterPlotColorScale3D from './components/ScatterPlotColorScale3D';
 import BarPlot3D from './components/BarPlot3D';
 import ParallelCoordinates3D from './components/ParallelCoordinates3D';
 import BubbleChartSizeColor3D from './components/BubbleChartSizeColor3D';
+import TimeSeriesChart from './components/TimeSeriesChart';
+import ParallelCoordinatesPlot from './components/ParallelCoordinatesPlot';
+import TreemapChart from './components/TreemapChart';
+import DonutChart from './components/DonutChart';
+import ScatterMatrix from './components/ScatterMatrix';
+import CorrelationHeatmap from './components/CorrelationHeatmap';
+import ChoroplethMap from './components/ChoroplethMap';
+import FunnelChart from './components/FunnelChart';
+import GaugeChart from './components/GaugeChart';
+import PolarAreaChart from './components/PolarAreaChart';
+import SunburstChartSectorTopic from './components/SunburstChartSectorTopic';
+import SankeyDiagram from './components/SankeyDiagram';
+import RadarChart from './components/RadarChart'; 
+import Treemap from './components/Treemap';
+import ContourPlot from './components/ContourPlot';
+import WaterfallChart from './components/WaterfallChart';
+import AnnotatedHeatmap from './components/AnnotatedHeatmap';
+import StepChart from './components/StepChart';
+import BulletChart from './components/BulletChart';
+import BubbleMap from './components/BubbleMap';
+import MarimekkoChart from './components/MarimekkoChart';
+import PolarScatterPlot from './components/PolarScatterPlot';
+import ParallelCategories from './components/ParallelCategories';
+import CandlestickChart from './components/CandlestickChart';
+import AreaChart from './components/AreaChart';
+import DotPlot from './components/DotPlot';
+import DensityHeatmap from './components/DensityHeatmap';
+import RadialBarChart from './components/RadialBarChart';
+import GeoScatterPlot from './components/GeoScatterPlot';
+import GeoPathPlot from './components/GeoPathPlot';
+import GeoLinePlot from './components/GeoLinePlot';
+import Geocode from 'react-geocode';
+import RoseChart from './components/RoseChart';
+import DumbbellPlot from './components/DumbbellPlot';
 import './styles.css';
+
 const App = () => {
   const [data, setData] = useState([]);
   const [filters, setFilters] = useState({});
@@ -60,6 +95,23 @@ const App = () => {
         <BubbleChart3D data={filteredData} />
         <Histogram3D data={filteredData} />
         <ScatterPlotColorScale3D data={filteredData} />
+        <TreemapChart data={filteredData} />
+        <DonutChart data={filteredData} />
+        <ScatterMatrix data={filteredData} />
+        <CorrelationHeatmap data={filteredData} />
+        <FunnelChart data={filteredData} />
+        <GaugeChart data={filteredData} />
+        <PolarAreaChart data={filteredData} />
+        <SunburstChartSectorTopic data={filteredData} />
+        <SankeyDiagram data={filteredData} />
+        <ContourPlot data={filteredData} />
+        <BubbleMap data={filteredData} />
+        <MarimekkoChart data={filteredData} />
+        <PolarScatterPlot data={filteredData} />
+        <ParallelCategories data={filteredData} />
+        <DotPlot data={filteredData} />
+        <DensityHeatmap data={filteredData} />
+        <DumbbellPlot data={filteredData} />
       </div>
     </div>
   );
