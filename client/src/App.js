@@ -27,6 +27,8 @@ import ParallelCategories from './components/ParallelCategories';
 import DotPlot from './components/DotPlot';
 import DensityHeatmap from './components/DensityHeatmap';
 import DumbbellPlot from './components/DumbbellPlot';
+import PieChart from './components/PieChart';
+import BubbleChart from './components/BubbleChart';
 import './styles.css';
 
 const App = () => {
@@ -52,11 +54,16 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="sidebar">
+        <h2>Filters</h2>
+        <Filters setFilters={setFilters} />
+      </div>
       <h1>Interactive Dashboard</h1>
-      <Filters setFilters={setFilters} />
       <div className="chart-container">
-        <D3Chart data={filteredData} />
+        
         <PlotlyChart data={filteredData} />
+        <BubbleChart data={filteredData} />
+        <PieChart data={filteredData} />
         <ViolinPlot data={filteredData} />
         <SunburstChart data={filteredData} />
         <Histogram data={filteredData} />
