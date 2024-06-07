@@ -236,10 +236,6 @@ const App = () => {
           <DumbbellPlot data={filteredData} />
           <div className="insight">Insight: The dumbbell plot compares two data points across different categories.</div>
         </div>
-        <div className="chart-wrapper">
-          <PieChart data={filteredData} />
-          <div className="insight">Insight: The pie chart represents data as slices of a pie, showing proportions.</div>
-        </div>
       </div>
     </div>
   );

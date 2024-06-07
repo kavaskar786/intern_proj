@@ -1,0 +1,12 @@
+{
+  "name": "intern_proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd mern-dashboard"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
