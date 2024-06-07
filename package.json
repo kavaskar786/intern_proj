@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install-server": "cd mern-dashboard"
+    "install-server": "cd mern-dashboard && npm install",
+    "start-server": "cd mern-dashboard && node server.js",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "start-client": "cd client && npm start"
+
   },
   "keywords": [],
   "author": "",
