@@ -34,6 +34,17 @@ const App = () => {
   const [filters, setFilters] = useState({ country: 'India' });
   const [loading, setLoading] = useState(true);
   const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [filterOptions, setFilterOptions] = useState({
+    countries: [],
+    topics: [],
+    sectors: [],
+    regions: [],
+    pest: [],
+    sources: [],
+    swot: [],
+    cities: [],
+    end_years: []
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,12 +56,31 @@ const App = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchFilterOptions = async () => {
+      const result = await axios('http://localhost:5000/api/filter-options');
+      setFilterOptions(result.data);
+    };
+    fetchFilterOptions();
+  }, []);
+
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
 
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters({
+      ...filters,
+      [name]: value
+    });
+  };
+
   const filteredData = data.filter(d => {
     return Object.keys(filters).every(key => {
+      if (key === 'end_year') {
+        return filters[key] ? d[key] && d[key] <= parseInt(filters[key]) : true;
+      }
       if (Array.isArray(d[key])) {
         return filters[key]?.every(f => d[key].includes(f));
       }
@@ -84,11 +114,13 @@ const App = () => {
       </button>
       <div className={`sidebar ${sidebarVisible ? 'visible' : ''}`}>
         <br/>
+        <br/>
+        <br/>
         <h2>Filters</h2>
-        <Filters setFilters={setFilters} filters={filters} />
+        <Filters setFilters={setFilters} filters={filters} filterOptions={filterOptions} handleFilterChange={handleFilterChange} />
       </div>
       <h1 className={sidebarVisible ? 'sidebar-visible' : ''}>Interactive Dashboard</h1>
-      <div className={`summary-cards ${sidebarVisible ? 'sidebar-visible' : ''}`}>
+      <div className= {`summary-cards ${sidebarVisible ? 'sidebar-visible' : ''}`}>
         <div className="card">
           <h3>{insights.totalRecords}</h3>
           <p>Total Records</p>
@@ -107,30 +139,107 @@ const App = () => {
         </div>
       </div>
       <div className={`chart-container ${sidebarVisible ? 'sidebar-visible' : ''}`}>
-        <ScatterPlotColorScale3D data={filteredData} />
-        <SunburstChartSectorTopic data={filteredData} />
-        <ScatterMatrix data={filteredData} />
-        <ViolinPlot data={filteredData} />
-        <PlotlyChart data={filteredData} />
-        <Histogram data={filteredData} />
-        <SunburstChart data={filteredData} />
-        <BubbleChart3D data={filteredData} />
-        <Histogram3D data={filteredData} />
-        <TreemapChart data={filteredData} />
-        <DonutChart data={filteredData} />
-        <BubbleChart data={filteredData} />
-        <CorrelationHeatmap data={filteredData} />
-        <FunnelChart data={filteredData} />
-        <GaugeChart data={filteredData} />
-        <PolarAreaChart data={filteredData} />
-        <SankeyDiagram data={filteredData} />
-        <ContourPlot data={filteredData} />
-        <MarimekkoChart data={filteredData} />
-        <PolarScatterPlot data={filteredData} />
-        <ParallelCategories data={filteredData} />
-        <DotPlot data={filteredData} />
-        <DensityHeatmap data={filteredData} />
-        <DumbbellPlot data={filteredData} />
+        <div className="chart-wrapper">
+          <ScatterPlotColorScale3D data={filteredData} />
+          <div className="insight">Insight: The scatter plot shows the relationship between different variables with color scales indicating varying values.</div>
+        </div>
+        <div className="chart-wrapper">
+          <SunburstChartSectorTopic data={filteredData} />
+          <div className="insight">Insight: The sunburst chart provides a hierarchical view of sectors and topics.</div>
+        </div>
+        <div className="chart-wrapper">
+          <ScatterMatrix data={filteredData} />
+          <div className="insight">Insight: The scatter matrix helps in understanding pairwise relationships among variables.</div>
+        </div>
+        <div className="chart-wrapper">
+          <ViolinPlot data={filteredData} />
+          <div className="insight">Insight: The violin plot shows the distribution of data across different categories.</div>
+        </div>
+        <div className="chart-wrapper">
+          <PlotlyChart data={filteredData} />
+          <div className="insight">Insight: This chart represents data in a customizable manner using Plotly.</div>
+        </div>
+        <div className="chart-wrapper">
+          <Histogram data={filteredData} />
+          <div className="insight">Insight: The histogram displays the frequency distribution of a dataset.</div>
+        </div>
+        <div className="chart-wrapper">
+          <SunburstChart data={filteredData} />
+          <div className="insight">Insight: This sunburst chart shows hierarchical data in a radial layout.</div>
+        </div>
+        <div className="chart-wrapper">
+          <BubbleChart3D data={filteredData} />
+          <div className="insight">Insight: The 3D bubble chart visualizes data points in three dimensions with varying sizes and colors.</div>
+        </div>
+        <div className="chart-wrapper">
+          <Histogram3D data={filteredData} />
+          <div className="insight">Insight: The 3D histogram provides a three-dimensional view of data distribution.</div>
+        </div>
+        <div className="chart-wrapper">
+          <TreemapChart data={filteredData} />
+          <div className="insight">Insight: The treemap chart represents hierarchical data using nested rectangles.</div>
+        </div>
+        <div className="chart-wrapper">
+          <DonutChart data={filteredData} />
+          <div className="insight">Insight: The donut chart is a variant of the pie chart with a central hole.</div>
+        </div>
+        <div className="chart-wrapper">
+          <BubbleChart data={filteredData} />
+          <div className="insight">Insight: This bubble chart visualizes data points with varying sizes and colors.</div>
+        </div>
+        <div className="chart-wrapper">
+          <CorrelationHeatmap data={filteredData} />
+          <div className="insight">Insight: The heatmap shows the correlation between different variables.</div>
+        </div>
+        <div className="chart-wrapper">
+          <FunnelChart data={filteredData} />
+          <div className="insight">Insight: The funnel chart illustrates stages in a process and their relative sizes.</div>
+        </div>
+        <div className="chart-wrapper">
+          <GaugeChart data={filteredData} />
+          <div className="insight">Insight: The gauge chart displays data in a speedometer-like format.</div>
+        </div>
+        <div className="chart-wrapper">
+          <PolarAreaChart data={filteredData} />
+          <div className="insight">Insight: The polar area chart visualizes data in a circular format.</div>
+        </div>
+        <div className="chart-wrapper">
+          <SankeyDiagram data={filteredData} />
+          <div className="insight">Insight: The Sankey diagram highlights flows and their quantities between different nodes.</div>
+        </div>
+        <div className="chart-wrapper">
+          <ContourPlot data={filteredData} />
+          <div className="insight">Insight: The contour plot represents three-dimensional data in two dimensions using contour lines.</div>
+        </div>
+
+        <div className="chart-wrapper">
+          <MarimekkoChart data={filteredData} />
+          <div className="insight">Insight: The Marimekko chart combines features of bar and pie charts to show categorical data.</div>
+        </div>
+        <div className="chart-wrapper">
+          <PolarScatterPlot data={filteredData} />
+          <div className="insight">Insight: The polar scatter plot represents data points in a polar coordinate system.</div>
+        </div>
+        <div className="chart-wrapper">
+          <ParallelCategories data={filteredData} />
+          <div className="insight">Insight: The parallel categories diagram shows multivariate categorical data.</div>
+        </div>
+        <div className="chart-wrapper">
+          <DotPlot data={filteredData} />
+          <div className="insight">Insight: The dot plot visualizes individual data points along a scale.</div>
+        </div>
+        <div className="chart-wrapper">
+          <DensityHeatmap data={filteredData} />
+          <div className="insight">Insight: The density heatmap shows the density of data points in a given area.</div>
+        </div>
+        <div className="chart-wrapper">
+          <DumbbellPlot data={filteredData} />
+          <div className="insight">Insight: The dumbbell plot compares two data points across different categories.</div>
+        </div>
+        <div className="chart-wrapper">
+          <PieChart data={filteredData} />
+          <div className="insight">Insight: The pie chart represents data as slices of a pie, showing proportions.</div>
+        </div>
       </div>
     </div>
   );

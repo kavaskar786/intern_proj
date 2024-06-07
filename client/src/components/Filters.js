@@ -11,6 +11,7 @@ const Filters = ({ setFilters, filters }) => {
     sources: [],
     swot: [],
     cities: [],
+    end_years: [], // Added end_years to filter options
   });
 
   useEffect(() => {
@@ -32,16 +33,12 @@ const Filters = ({ setFilters, filters }) => {
     }));
   };
 
- 
-  
-
   return (
     <div>
-      
       <div className="filter">
         <label htmlFor="country">Country:</label>
         {console.log(filterOptions)}
-        {console.log("kavaskar_country",filterOptions.countries)}
+        {console.log("kavaskar_country", filterOptions.countries)}
         <select name="country" value={filters.country} onChange={handleFilterChange}>
           {filterOptions.countries.map((country) => (
             <option key={country} value={country}>
@@ -52,7 +49,7 @@ const Filters = ({ setFilters, filters }) => {
       </div>
       <div className="filter">
         <label htmlFor="topic">Topic:</label>
-        {console.log("kavaskar_topic",filterOptions.topics)}
+        {console.log("kavaskar_topic", filterOptions.topics)}
         <select name="topic" value={filters.topic || ''} onChange={handleFilterChange}>
           <option value="">Select Topic</option>
           {filterOptions.topics.map((topic) => (
@@ -64,7 +61,7 @@ const Filters = ({ setFilters, filters }) => {
       </div>
       <div className="filter">
         <label htmlFor="sector">Sector:</label>
-        {console.log("kavaskar_sector",filterOptions.sectors)}
+        {console.log("kavaskar_sector", filterOptions.sectors)}
         <select name="sector" value={filters.sector || ''} onChange={handleFilterChange}>
           <option value="">Select Sector</option>
           {filterOptions.sectors.map((sector) => (
@@ -76,7 +73,7 @@ const Filters = ({ setFilters, filters }) => {
       </div>
       <div className="filter">
         <label htmlFor="region">Region:</label>
-        {console.log("kavaskar_region",filterOptions.regions)}
+        {console.log("kavaskar_region", filterOptions.regions)}
         <select name="region" value={filters.region || ''} onChange={handleFilterChange}>
           <option value="">Select Region</option>
           {filterOptions.regions.map((region) => (
@@ -88,8 +85,8 @@ const Filters = ({ setFilters, filters }) => {
       </div>
       <div className="filter">
         <label htmlFor="pest">PEST:</label>
-        {console.log("kavaskar_pest",filterOptions.pests)}
-        <select name="pest" value={filters.pest || ''} onChange={handleFilterChange}>
+        {console.log("kavaskar_pest", filterOptions.pests)}
+        <select name="pestle" value={filters.pestle || ''} onChange={handleFilterChange}>
           <option value="">Select PEST</option>
           {filterOptions.pest.map((pest) => (
             <option key={pest} value={pest}>
@@ -100,7 +97,7 @@ const Filters = ({ setFilters, filters }) => {
       </div>
       <div className="filter">
         <label htmlFor="source">Source:</label>
-        {console.log("source",filterOptions.sources)}
+        {console.log("source", filterOptions.sources)}
         <select name="source" value={filters.source || ''} onChange={handleFilterChange}>
           <option value="">Select Source</option>
           {filterOptions.sources.map((source) => (
@@ -111,13 +108,13 @@ const Filters = ({ setFilters, filters }) => {
         </select>
       </div>
       <div className="filter">
-        <label htmlFor="swot">SWOT:</label>
-        {console.log("swot",filterOptions.swot)}
-        <select name="swot" value={filters.swot || ''} onChange={handleFilterChange}>
-          <option value="">Select SWOT</option>
-          {filterOptions.swot.map((swot) => (
-            <option key={swot} value={swot}>
-              {swot}
+        <label htmlFor="end_year">End Year:</label>
+        {console.log("end_year", filterOptions.end_years)}
+        <select name="end_year" value={filters.end_year || ''} onChange={handleFilterChange}>
+          <option value="">Select End Year</option>
+          {filterOptions.end_years.map((end_year) => (
+            <option key={end_year} value={end_year}>
+              {end_year}
             </option>
           ))}
         </select>
