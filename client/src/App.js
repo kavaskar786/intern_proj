@@ -237,6 +237,7 @@ const App = () => {
           <div className="insight">Insight: The dumbbell plot compares two data points across different categories.</div>
         </div>
       </div>
+      <div className={`chart-container ${sidebarVisible ? 'sidebar-visible' : ''}`}>Developed by Kavaskar😊</div>
     </div>
   );
 };

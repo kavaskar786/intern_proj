@@ -120,7 +120,7 @@ const Filters = ({ setFilters, filters }) => {
           ))}
         </select>
       </div>
-      <div>Developed by Kavaskar</div>
+      <div className='credits'>Developed by Kavaskar😊</div>
     </div>
   );
 };
