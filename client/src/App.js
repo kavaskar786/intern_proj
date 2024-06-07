@@ -49,7 +49,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const result = await axios('http://localhost:5000/api/data');
+      const result = await axios('https://backend-service-u2h6.onrender.com/api/data');
       setData(result.data);
       setLoading(false);
     };
@@ -58,7 +58,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchFilterOptions = async () => {
-      const result = await axios('http://localhost:5000/api/filter-options');
+      const result = await axios('https://backend-service-u2h6.onrender.com/api/filter-options');
       setFilterOptions(result.data);
     };
     fetchFilterOptions();

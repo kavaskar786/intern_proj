@@ -19,7 +19,7 @@ const Filters = ({ setFilters, filters }) => {
       resolve => setTimeout(resolve, ms)
     );
     const fetchFilterOptions = async () => {
-      const result = await axios('http://localhost:5000/api/filter-options');
+      const result = await axios('https://backend-service-u2h6.onrender.com/api/filter-options');
       setFilterOptions(result.data);
     };
     fetchFilterOptions();
@@ -40,6 +40,7 @@ const Filters = ({ setFilters, filters }) => {
         {console.log(filterOptions)}
         {console.log("kavaskar_country", filterOptions.countries)}
         <select name="country" value={filters.country} onChange={handleFilterChange}>
+        <option value="">Select Country</option>
           {filterOptions.countries.map((country) => (
             <option key={country} value={country}>
               {country}
@@ -119,6 +120,7 @@ const Filters = ({ setFilters, filters }) => {
           ))}
         </select>
       </div>
+      <div>Developed by Kavaskar</div>
     </div>
   );
 };
