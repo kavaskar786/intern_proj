@@ -1,4 +1,3 @@
-// src/components/TreemapChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -26,17 +25,43 @@ const TreemapChart = ({ data }) => {
   });
 
   return (
-    <Plot
-      data={[
-        {
-          type: 'treemap',
-          labels,
-          parents,
-          values,
-        },
-      ]}
-      layout={{ title: 'Treemap: Hierarchical Data by Region and Country' }}
-    />
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            type: 'treemap',
+            labels,
+            parents,
+            values,
+            marker: {
+              colors: labels.map((label, index) => index === 0 ? '#65D3FD' : index % 2 === 0 ? '#65D3FD' : '#065D7F'),
+            },
+            textinfo: 'label+value+percent parent+percent entry',
+            outsidetextfont: { size: 20, color: '#065D7F' },
+            leaf: { opacity: 0.6 },
+            marker: { line: { width: 2 } },
+          },
+        ]}
+        layout={{
+          title: 'Treemap: Hierarchical Data by Region and Country',
+          autosize: true,
+          font: {
+            color: '#065D7F',
+          },
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4,
+          },
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

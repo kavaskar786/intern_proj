@@ -1,4 +1,3 @@
-    // src/components/DumbbellPlot.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -14,20 +13,44 @@ const DumbbellPlot = ({ data }) => {
   }));
 
   return (
-    <Plot
-      data={[
-        {
-          type: 'scatter',
-          mode: 'lines+markers',
-          x: countryPairs.map(pair => pair.intensity),
-          y: countries,
-          marker: { size: 12 },
-          line: { width: 2 },
-          name: 'Intensity',
-        },
-      ]}
-      layout={{ title: 'Dumbbell Plot: Intensity Comparison by Country' }}
-    />
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            type: 'scatter',
+            mode: 'lines+markers',
+            x: countryPairs.map(pair => pair.intensity),
+            y: countries,
+            marker: { 
+              size: 12,
+              color: '#65D3FD'
+            },
+            line: { 
+              width: 2,
+              color: '#065D7F' 
+            },
+            name: 'Intensity',
+          },
+        ]}
+        layout={{
+          title: 'Dumbbell Plot: Intensity Comparison by Country',
+          autosize: true,
+          xaxis: { title: 'Total Intensity' },
+          yaxis: { title: 'Countries' },
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4,
+          },
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

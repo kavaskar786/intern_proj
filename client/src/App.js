@@ -18,7 +18,6 @@ import PolarAreaChart from './components/PolarAreaChart';
 import SunburstChartSectorTopic from './components/SunburstChartSectorTopic';
 import SankeyDiagram from './components/SankeyDiagram';
 import ContourPlot from './components/ContourPlot';
-import BubbleMap from './components/BubbleMap';
 import MarimekkoChart from './components/MarimekkoChart';
 import PolarScatterPlot from './components/PolarScatterPlot';
 import ParallelCategories from './components/ParallelCategories';
@@ -113,14 +112,11 @@ const App = () => {
         {sidebarVisible ? 'Hide Filters' : 'Show Filters'}
       </button>
       <div className={`sidebar ${sidebarVisible ? 'visible' : ''}`}>
-        <br/>
-        <br/>
-        <br/>
         <h2>Filters</h2>
         <Filters setFilters={setFilters} filters={filters} filterOptions={filterOptions} handleFilterChange={handleFilterChange} />
       </div>
       <h1 className={sidebarVisible ? 'sidebar-visible' : ''}>Interactive Dashboard</h1>
-      <div className= {`summary-cards ${sidebarVisible ? 'sidebar-visible' : ''}`}>
+      <div className={`summary-cards ${sidebarVisible ? 'sidebar-visible' : ''}`}>
         <div className="card">
           <h3>{insights.totalRecords}</h3>
           <p>Total Records</p>
@@ -138,106 +134,72 @@ const App = () => {
           <p>Average Relevance</p>
         </div>
       </div>
-      <div className={`chart-container ${sidebarVisible ? 'sidebar-visible' : ''}`}>
-        <div className="chart-wrapper">
+      <div className={`chart-grid ${sidebarVisible ? 'sidebar-visible' : ''}`}>
+        <div className='chart'>
           <ScatterPlotColorScale3D data={filteredData} />
-          <div className="insight">Insight: The scatter plot shows the relationship between different variables with color scales indicating varying values.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <SunburstChartSectorTopic data={filteredData} />
-          <div className="insight">Insight: The sunburst chart provides a hierarchical view of sectors and topics.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <ScatterMatrix data={filteredData} />
-          <div className="insight">Insight: The scatter matrix helps in understanding pairwise relationships among variables.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <ViolinPlot data={filteredData} />
-          <div className="insight">Insight: The violin plot shows the distribution of data across different categories.</div>
-        </div>
-        <div className="chart-wrapper">
-          <PlotlyChart data={filteredData} />
-          <div className="insight">Insight: This chart represents data in a customizable manner using Plotly.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <Histogram data={filteredData} />
-          <div className="insight">Insight: The histogram displays the frequency distribution of a dataset.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <SunburstChart data={filteredData} />
-          <div className="insight">Insight: This sunburst chart shows hierarchical data in a radial layout.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <BubbleChart3D data={filteredData} />
-          <div className="insight">Insight: The 3D bubble chart visualizes data points in three dimensions with varying sizes and colors.</div>
-        </div>
-        <div className="chart-wrapper">
-          <Histogram3D data={filteredData} />
-          <div className="insight">Insight: The 3D histogram provides a three-dimensional view of data distribution.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <TreemapChart data={filteredData} />
-          <div className="insight">Insight: The treemap chart represents hierarchical data using nested rectangles.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <DonutChart data={filteredData} />
-          <div className="insight">Insight: The donut chart is a variant of the pie chart with a central hole.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <BubbleChart data={filteredData} />
-          <div className="insight">Insight: This bubble chart visualizes data points with varying sizes and colors.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <CorrelationHeatmap data={filteredData} />
-          <div className="insight">Insight: The heatmap shows the correlation between different variables.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <FunnelChart data={filteredData} />
-          <div className="insight">Insight: The funnel chart illustrates stages in a process and their relative sizes.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <GaugeChart data={filteredData} />
-          <div className="insight">Insight: The gauge chart displays data in a speedometer-like format.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <PolarAreaChart data={filteredData} />
-          <div className="insight">Insight: The polar area chart visualizes data in a circular format.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <SankeyDiagram data={filteredData} />
-          <div className="insight">Insight: The Sankey diagram highlights flows and their quantities between different nodes.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <ContourPlot data={filteredData} />
-          <div className="insight">Insight: The contour plot represents three-dimensional data in two dimensions using contour lines.</div>
-        </div>
-
-        <div className="chart-wrapper">
-          <MarimekkoChart data={filteredData} />
-          <div className="insight">Insight: The Marimekko chart combines features of bar and pie charts to show categorical data.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <PolarScatterPlot data={filteredData} />
-          <div className="insight">Insight: The polar scatter plot represents data points in a polar coordinate system.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <ParallelCategories data={filteredData} />
-          <div className="insight">Insight: The parallel categories diagram shows multivariate categorical data.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <DotPlot data={filteredData} />
-          <div className="insight">Insight: The dot plot visualizes individual data points along a scale.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <DensityHeatmap data={filteredData} />
-          <div className="insight">Insight: The density heatmap shows the density of data points in a given area.</div>
-        </div>
-        <div className="chart-wrapper">
+          </div>
+          <div className='chart'>
           <DumbbellPlot data={filteredData} />
-          <div className="insight">Insight: The dumbbell plot compares two data points across different categories.</div>
-        </div>
+          </div>
       </div>
-      <div className={`chart-container ${sidebarVisible ? 'sidebar-visible' : ''}`}>Developed by Kavaskar😊</div>
+      <div className='credits_2' >Developed by Kavaskar😊</div>
     </div>
   );
 };

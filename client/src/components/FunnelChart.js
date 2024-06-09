@@ -1,4 +1,3 @@
-// src/components/FunnelChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -9,18 +8,41 @@ const FunnelChart = ({ data }) => {
   }, {});
 
   return (
-    <Plot
-      data={[
-        {
-          type: 'funnel',
-          y: Object.keys(topicCounts),
-          x: Object.values(topicCounts),
-          textposition: 'inside',
-          textinfo: 'value+percent total',
-        },
-      ]}
-      layout={{ title: 'Funnel Chart: Breakdown by Topic' }}
-    />
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            type: 'funnel',
+            y: Object.keys(topicCounts),
+            x: Object.values(topicCounts),
+            textposition: 'inside',
+            textinfo: 'value+percent total',
+            marker: {
+              color: '#65D3FD',
+              line: {
+                width: 2,
+                color: '#065D7F'
+              }
+            }
+          },
+        ]}
+        layout={{
+          title: 'Funnel Chart: Breakdown by Topic',
+          autosize: true,
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4,
+          },
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

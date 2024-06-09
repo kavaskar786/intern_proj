@@ -1,4 +1,3 @@
-// src/components/GaugeChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -16,25 +15,42 @@ const GaugeChart = ({ data }) => {
   );
 
   return (
-    <Plot
-      data={[
-        {
-          type: 'indicator',
-          mode: 'gauge+number',
-          value: avgIntensity.reduce((a, b) => a + b, 0) / regions.length,
-          title: { text: 'Average Intensity by Region' },
-          gauge: {
-            axis: { range: [null, 10] },
-            steps: regions.map((region, index) => ({
-              range: [index, index + 1],
-              color: `hsl(${(index * 360) / regions.length}, 100%, 50%)`,
-              name: region,
-            })),
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            type: 'indicator',
+            mode: 'gauge+number',
+            value: avgIntensity.reduce((a, b) => a + b, 0) / regions.length,
+            title: { text: 'Average Intensity by Region' },
+            gauge: {
+              axis: { range: [null, 10] },
+              bar: { color: '#65D3FD' },
+              steps: avgIntensity.map((value, index) => ({
+                range: [index * (10 / avgIntensity.length), (index + 1) * (10 / avgIntensity.length)],
+                color: '#65D3FD'
+              })),
+              bordercolor: '#065D7F',
+            },
           },
-        },
-      ]}
-      layout={{ title: 'Gauge Chart: Average Intensity by Region' }}
-    />
+        ]}
+        layout={{
+          
+          autosize: true,
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4,
+          },
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

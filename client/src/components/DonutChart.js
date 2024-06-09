@@ -1,4 +1,3 @@
-// src/components/DonutChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -9,17 +8,36 @@ const DonutChart = ({ data }) => {
   }, {});
 
   return (
-    <Plot
-      data={[
-        {
-          labels: Object.keys(topicCounts),
-          values: Object.values(topicCounts),
-          type: 'pie',
-          hole: 0.4,
-        },
-      ]}
-      layout={{ title: 'Donut Chart: Distribution by Topics' }}
-    />
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            labels: Object.keys(topicCounts),
+            values: Object.values(topicCounts),
+            type: 'pie',
+            hole: 0.4,
+            marker: {
+              colors: ['#c7fdff','#c7fdff','#acf7fa','#89f6fa','#75f5fa','#48ecf7','#2fe8f5','#0febfa','#acf7fa']
+            },
+          },
+        ]}
+        layout={{ 
+          title: 'Donut Chart: Distribution by Topics',
+          autosize: true,
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4
+          },
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

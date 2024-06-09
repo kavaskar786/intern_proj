@@ -1,4 +1,3 @@
-// src/components/PolarAreaChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -9,17 +8,42 @@ const PolarAreaChart = ({ data }) => {
   }, {});
 
   return (
-    <Plot
-      data={[
-        {
-          type: 'barpolar',
-          r: Object.values(topicRelevance),
-          theta: Object.keys(topicRelevance),
-          marker: { color: 'blue' },
-        },
-      ]}
-      layout={{ title: 'Polar Area Chart: Relevance by Topic' }}
-    />
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            type: 'barpolar',
+            r: Object.values(topicRelevance),
+            theta: Object.keys(topicRelevance),
+            marker: {
+              color: Object.keys(topicRelevance).map((_, i) => `rgba(${101 + (i * 3) % 154}, ${211 - (i * 3) % 154}, 253, 0.8)`),  // Custom color theme
+            },
+          },
+        ]}
+        layout={{
+          title: 'Polar Area Chart: Relevance by Topic',
+          autosize: true,
+          polar: {
+            radialaxis: {
+              visible: true,
+              range: [0, Math.max(...Object.values(topicRelevance))]
+            },
+            bgcolor: '#fff',
+          },
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4,
+          },
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

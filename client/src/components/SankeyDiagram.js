@@ -1,4 +1,3 @@
-// src/components/SankeyDiagram.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -38,29 +37,50 @@ const SankeyDiagram = ({ data }) => {
   const values = links.map(link => link.value);
 
   return (
-    <Plot
-      data={[
-        {
-          type: 'sankey',
-          orientation: 'h',
-          node: {
-            pad: 15,
-            thickness: 20,
-            line: {
-              color: 'black',
-              width: 0.5,
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            type: 'sankey',
+            orientation: 'h',
+            node: {
+              pad: 15,
+              thickness: 20,
+              line: {
+                color: '#65D3FD',  // Adjusted to fit the theme
+                width: 0.5,
+              },
+              label: nodes.map(node => node.name),
+              color: '#65D3FD',  // Adjusted to fit the theme
             },
-            label: nodes.map(node => node.name),
+            link: {
+              source: sources,
+              target: targets,
+              value: values,
+              color: 'rgba(101, 211, 253, 0.6)',  // Adjusted to fit the theme
+            },
           },
-          link: {
-            source: sources,
-            target: targets,
-            value: values,
+        ]}
+        layout={{
+          title: 'Sankey Diagram: Flow of Topics by Country',
+          autosize: true,
+          font: {
+            color: '#065D7F',
           },
-        },
-      ]}
-      layout={{ title: 'Sankey Diagram: Flow of Topics by Country' }}
-    />
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: {
+            l: 40,
+            r: 40,
+            b: 40,
+            t: 40,
+            pad: 4,
+          },
+        }}
+        style={{ width: '100%', height: '100%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 

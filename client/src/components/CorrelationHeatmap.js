@@ -1,4 +1,3 @@
-// src/components/CorrelationHeatmap.js
 import React from 'react';
 import Plot from 'react-plotly.js';
 
@@ -14,18 +13,34 @@ const CorrelationHeatmap = ({ data }) => {
   );
 
   return (
-    <Plot
-      data={[
-        {
-          z: matrix,
-          x: variables,
-          y: variables,
-          type: 'heatmap',
-          colorscale: 'Viridis',
-        },
-      ]}
-      layout={{ title: 'Heatmap: Correlation Between Variables' }}
-    />
+    <div className="chart-wrapper">
+      <Plot
+        data={[
+          {
+            z: matrix,
+            x: variables,
+            y: variables,
+            type: 'heatmap',
+            colorscale: [
+              [0, '#65D3FD'],
+              [1, '#065D7F']
+            ],
+          },
+        ]}
+        layout={{
+          title: 'Heatmap: Correlation Between Variables',
+          autosize: true,
+          xaxis: { title: 'Variables' },
+          yaxis: { title: 'Variables' },
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          margin: { t: 40, b: 40, l: 40, r: 40 },
+        }}
+        config={{ responsive: false }}
+        style={{ width: '100%', height: '300%' }}
+        useResizeHandler={true}
+      />
+    </div>
   );
 };
 
