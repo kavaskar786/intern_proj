@@ -336,16 +336,7 @@ h1.sidebar-visible {
   }
 }
 
-@media (max-width: 480px) {
-  .carousel-slide {
-    padding: 5px;
-  }
 
-  .carousel-slide img {
-    max-width: 80px;
-    max-height: 80px;
-  }
-}
 
 @media (max-width: 520px) {
   .carousel-wrapper {
@@ -361,8 +352,18 @@ h1.sidebar-visible {
   }
 }
 
+@media (max-width: 480px) {
+  .carousel-slide {
+    padding: 5px;
+  }
 
-@media (max-width: 360px){
+  .carousel-slide img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 400px){
   .carousel-wrapper {
     flex-direction: column;
     min-width: 5em;
@@ -375,8 +376,8 @@ h1.sidebar-visible {
     max-width: 20em;
   }
   .chart{
-    height: 13em;
-    width: 13em;
+    height: 18em;
+    width: 18em;
   }
   .App{
     padding: 0;
