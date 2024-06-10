@@ -49,7 +49,7 @@ const SankeyDiagram = ({ data }) => {
                 color: '#65D3FD',  // Adjusted to fit the theme
                 width: 0.5,
               },
-              
+              label: nodes.map(node => node.name),
               color: '#65D3FD',  // Adjusted to fit the theme
             },
             link: {
