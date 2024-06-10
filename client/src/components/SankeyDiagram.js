@@ -49,7 +49,7 @@ const SankeyDiagram = ({ data }) => {
                 color: '#65D3FD',  // Adjusted to fit the theme
                 width: 0.5,
               },
-              label: nodes.map(node => node.name),
+              
               color: '#65D3FD',  // Adjusted to fit the theme
             },
             link: {
@@ -61,7 +61,7 @@ const SankeyDiagram = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Sankey Diagram: Flow of Topics by Country',
+          title: 'Sankey Diagram',
           autosize: true,
           font: {
             color: '#065D7F',
@@ -72,7 +72,7 @@ const SankeyDiagram = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

@@ -16,7 +16,7 @@ const Histogram = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Distribution of Relevance',
+          title: 'Histogram',
           autosize: true,
           plot_bgcolor: '#fff',
           paper_bgcolor: '#fff',
@@ -24,7 +24,7 @@ const Histogram = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
           xaxis: {

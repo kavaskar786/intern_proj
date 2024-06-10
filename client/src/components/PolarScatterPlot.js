@@ -22,7 +22,7 @@ const PolarScatterPlot = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Polar Scatter Plot: Intensity and Relevance by Topic',
+          title: 'Polar Scatter Plot',
           autosize: true,
           polar: {
             radialaxis: {
@@ -40,7 +40,7 @@ const PolarScatterPlot = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

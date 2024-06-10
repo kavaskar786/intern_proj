@@ -18,7 +18,7 @@ const ViolinPlot = ({ data }) => {
       <Plot
         data={traces}
         layout={{
-          title: 'Likelihood by Region',
+          title: 'ViolinPlot',
           autosize: true,
           font: {
             color: '#065D7F',
@@ -29,7 +29,7 @@ const ViolinPlot = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

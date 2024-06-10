@@ -20,7 +20,7 @@ const PolarAreaChart = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Polar Area Chart: Relevance by Topic',
+          title: 'Polar Area Chart',
           autosize: true,
           polar: {
             radialaxis: {
@@ -35,7 +35,7 @@ const PolarAreaChart = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

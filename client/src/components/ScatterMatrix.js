@@ -62,7 +62,7 @@ const ScatterMatrix = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Scatter Matrix: Relationships Between Multiple Variables',
+          title: 'Scatter Matrix',
           autosize: true,
           font: {
             color: '#065D7F',
@@ -73,7 +73,7 @@ const ScatterMatrix = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

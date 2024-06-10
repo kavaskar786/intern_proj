@@ -16,13 +16,13 @@ const DensityHeatmap = ({ data }) => {
           },
         ]}
         layout={{ 
-          title: 'Density Heatmap: Intensity and Likelihood Distribution',
+          title: 'DensityHeatmap',
           autosize: true, // Allow the plot to fit into the grid layout
           margin: {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4
           },
           plot_bgcolor: '#fff',

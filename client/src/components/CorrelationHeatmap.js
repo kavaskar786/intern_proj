@@ -28,13 +28,13 @@ const CorrelationHeatmap = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Heatmap: Correlation Between Variables',
+          title: 'CorrelationHeatmap',
           autosize: true,
           xaxis: { title: 'Variables' },
           yaxis: { title: 'Variables' },
           plot_bgcolor: '#fff',
           paper_bgcolor: '#fff',
-          margin: { t: 40, b: 40, l: 40, r: 40 },
+          margin: { t: 80, b: 40, l: 40, r: 40 },
         }}
         config={{ responsive: false }}
         style={{ width: '100%', height: '100%' }}

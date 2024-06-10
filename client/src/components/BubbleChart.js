@@ -22,7 +22,7 @@ const BubbleChart = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Intensity vs Likelihood vs Relevance',
+          title: 'BubbleChart',
           xaxis: { title: 'Intensity' },
           yaxis: { title: 'Likelihood' },
           autosize: true,
@@ -35,7 +35,7 @@ const BubbleChart = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

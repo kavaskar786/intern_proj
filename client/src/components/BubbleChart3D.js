@@ -23,12 +23,19 @@ const BubbleChart3D = ({ data }) => {
         },
       ]}
       layout={{
-        title: '3D Bubble Chart: Intensity vs Likelihood vs Relevance',
+        title: 'BubbleChart3D',
         autosize: true,
         scene: {
           xaxis: { title: 'Intensity' },
           yaxis: { title: 'Likelihood' },
           zaxis: { title: 'Relevance' },
+        },
+        margin: {
+          l: 40,
+          r: 40,
+          b: 40,
+          t: 80,
+          pad: 4,
         },
       }}
       style={{ width: '100%', height: '100%' }}

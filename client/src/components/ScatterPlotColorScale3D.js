@@ -55,7 +55,7 @@ const ScatterPlotColorScale3D = ({ data }) => {
           },
         ]}
         layout={{
-          title: '3D Scatter Plot with Color Scale: Intensity, Likelihood, and Relevance',
+          title: 'ScatterPlotColorScale3D',
           autosize: true,
           font: {
             color: '#065D7F',
@@ -66,7 +66,7 @@ const ScatterPlotColorScale3D = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

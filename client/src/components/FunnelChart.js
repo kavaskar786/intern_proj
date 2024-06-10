@@ -26,7 +26,7 @@ const FunnelChart = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Funnel Chart: Breakdown by Topic',
+          title: 'Funnel Chart',
           autosize: true,
           plot_bgcolor: '#fff',
           paper_bgcolor: '#fff',
@@ -34,7 +34,7 @@ const FunnelChart = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

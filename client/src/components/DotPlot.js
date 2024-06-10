@@ -27,7 +27,7 @@ const DotPlot = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Dot Plot: Intensity by Country',
+          title: 'Dot Plot',
           autosize: true,
           xaxis: { title: 'Countries' },
           yaxis: { title: 'Total Intensity' },
@@ -37,7 +37,7 @@ const DotPlot = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

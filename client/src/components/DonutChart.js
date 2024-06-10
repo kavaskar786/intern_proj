@@ -21,13 +21,13 @@ const DonutChart = ({ data }) => {
           },
         ]}
         layout={{ 
-          title: 'Donut Chart: Distribution by Topics',
+          title: 'DonutChart',
           autosize: true,
           margin: {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4
           },
           plot_bgcolor: '#fff',

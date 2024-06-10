@@ -321,7 +321,6 @@ h1.sidebar-visible {
 
   .corousel_cont {
     flex-direction: column;
-    margin-left: 2.4em
   }
 
   .carousel-slide {
@@ -362,11 +361,6 @@ h1.sidebar-visible {
   }
 }
 
-@media (max-width: 450px){
-  .corousel_cont{
-    margin-left: 0em;
-  }
-}
 
 @media (max-width: 360px){
   .carousel-wrapper {
@@ -389,4 +383,9 @@ h1.sidebar-visible {
     padding-top: 30px;
   }
 
+}
+
+/* App.css */
+.parcats-text {
+  display: none !important;
 }

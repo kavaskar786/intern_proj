@@ -34,7 +34,7 @@ const GaugeChart = ({ data }) => {
           },
         ]}
         layout={{
-          
+          title:'GaugeChart',
           autosize: true,
           plot_bgcolor: '#fff',
           paper_bgcolor: '#fff',
@@ -42,7 +42,7 @@ const GaugeChart = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

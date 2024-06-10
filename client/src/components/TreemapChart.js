@@ -42,7 +42,7 @@ const TreemapChart = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Treemap: Hierarchical Data by Region and Country',
+          title: 'Treemap',
           autosize: true,
           font: {
             color: '#065D7F',
@@ -53,7 +53,7 @@ const TreemapChart = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

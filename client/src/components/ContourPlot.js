@@ -17,13 +17,13 @@ const ContourPlot = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Contour Plot: Likelihood vs. Intensity',
+          title: 'ContourPlot',
           autosize: true,
           xaxis: { title: 'Intensity' },
           yaxis: { title: 'Relevance' },
           plot_bgcolor: '#fff',
           paper_bgcolor: '#fff',
-          margin: { t: 40, b: 40, l: 40, r: 40 },
+          margin: { t: 80, b: 40, l: 40, r: 40 },
         }}
         config={{ responsive: false }}
         style={{ width: '100%', height: '100%' }}

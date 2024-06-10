@@ -32,7 +32,7 @@ const DumbbellPlot = ({ data }) => {
           },
         ]}
         layout={{
-          title: 'Dumbbell Plot: Intensity Comparison by Country',
+          title: 'Dumbbell Plot',
           autosize: true,
           xaxis: { title: 'Total Intensity' },
           yaxis: { title: 'Countries' },
@@ -42,7 +42,7 @@ const DumbbellPlot = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}

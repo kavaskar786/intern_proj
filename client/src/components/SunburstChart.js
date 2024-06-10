@@ -25,7 +25,7 @@ const SunburstChart = ({ data }) => {
       <Plot
         data={[chartData]}
         layout={{
-          title: 'Topics by Sector',
+          title: 'SunburstChart',
           autosize: true,
           font: {
             color: '#065D7F',
@@ -36,7 +36,7 @@ const SunburstChart = ({ data }) => {
             l: 40,
             r: 40,
             b: 40,
-            t: 40,
+            t: 80,
             pad: 4,
           },
         }}
