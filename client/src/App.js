@@ -1,36 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Filters from './components/Filters';
-import PlotlyChart from './components/PlotlyChart';
+import ScatterPlotColorScale3D from './components/ScatterPlotColorScale3D';
+import SunburstChartSectorTopic from './components/SunburstChartSectorTopic';
+import ScatterMatrix from './components/ScatterMatrix';
 import ViolinPlot from './components/ViolinPlot';
-import SunburstChart from './components/SunburstChart';
 import Histogram from './components/Histogram';
 import BubbleChart3D from './components/BubbleChart3D';
-import Histogram3D from './components/Histogram3D';
-import ScatterPlotColorScale3D from './components/ScatterPlotColorScale3D';
 import TreemapChart from './components/TreemapChart';
 import DonutChart from './components/DonutChart';
-import ScatterMatrix from './components/ScatterMatrix';
+import BubbleChart from './components/BubbleChart';
 import CorrelationHeatmap from './components/CorrelationHeatmap';
 import FunnelChart from './components/FunnelChart';
 import GaugeChart from './components/GaugeChart';
 import PolarAreaChart from './components/PolarAreaChart';
-import SunburstChartSectorTopic from './components/SunburstChartSectorTopic';
 import SankeyDiagram from './components/SankeyDiagram';
 import ContourPlot from './components/ContourPlot';
-import MarimekkoChart from './components/MarimekkoChart';
 import PolarScatterPlot from './components/PolarScatterPlot';
 import ParallelCategories from './components/ParallelCategories';
 import DotPlot from './components/DotPlot';
 import DensityHeatmap from './components/DensityHeatmap';
 import DumbbellPlot from './components/DumbbellPlot';
-import PieChart from './components/PieChart';
-import BubbleChart from './components/BubbleChart';
+import SunburstChart from './components/SunburstChart';
 import './styles.css';
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [filters, setFilters] = useState({ country: 'India' });
+  const [filters, setFilters] = useState({ country: 'China' });
   const [loading, setLoading] = useState(true);
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [filterOptions, setFilterOptions] = useState({
@@ -115,91 +113,187 @@ const App = () => {
         <h2>Filters</h2>
         <Filters setFilters={setFilters} filters={filters} filterOptions={filterOptions} handleFilterChange={handleFilterChange} />
       </div>
-      <h1 className={sidebarVisible ? 'sidebar-visible' : ''}>Interactive Dashboard</h1>
-      <div className={`summary-cards ${sidebarVisible ? 'sidebar-visible' : ''}`}>
-        <div className="card">
-          <h3>{insights.totalRecords}</h3>
-          <p>Total Records</p>
+      <h1 className="dashboard-title">Dashboard</h1>
+      <div className={`corousel_cont ${sidebarVisible ? 'sidebar-visible' : ''}`}>
+      <div className="carousel-wrapper">
+        <div className='corousel1'>
+        <Carousel showThumbs={false} showIndicators={true} showStatus={false} infiniteLoop autoPlay>
+          <div className="carousel-slide">
+            <div className="card">
+              <h3>{insights.totalRecords}</h3>
+              <p>Total Records</p>
+            </div>
+            <div className='c_img'>
+            <img src="https://i.ibb.co/NnPqbZK/Designer-2-removebg-preview.png" alt="Graph 1" className="carousel-image" />
+            </div>
+          </div>
+          <div className="carousel-slide">
+            <div className="card">
+              <h3>{insights.avgIntensity}</h3>
+              <p>Average Intensity</p>
+            </div>
+            <div className='c_img'>
+            <img src="https://i.ibb.co/jDVMPRs/Designer-3-removebg-preview.png" alt="Graph 2" className="carousel-image" />
+          </div>
+          </div>
+          
+        </Carousel>
         </div>
-        <div className="card">
-          <h3>{insights.avgIntensity}</h3>
-          <p>Average Intensity</p>
+      </div>
+    
+      <div className="carousel-wrapper">
+        <div className='corousel1'>
+        <Carousel showThumbs={false} showIndicators={true} showStatus={false} infiniteLoop autoPlay>
+          
+          <div className="carousel-slide">
+            <div className="card">
+              <h3>{insights.avgLikelihood}</h3>
+              <p>Average Likelihood</p>
+            </div>
+            <div className='c_img'>
+            <img src="https://i.ibb.co/ysDF4Mw/Designer-5-removebg-preview.png" alt="Graph 3" className="carousel-image" />
+          </div>
+          </div>
+          <div className="carousel-slide">
+            <div className="card">
+              <h3>{insights.avgRelevance}</h3>
+              <p>Average Relevance</p>
+            </div>
+            <div className='c_img'>
+            <img src="https://i.ibb.co/RgQhNM2/Designer-4-removebg-preview.png" alt="Graph 4" className="carousel-image" />
+          </div>
+          </div>
+        </Carousel>
         </div>
-        <div className="card">
-          <h3>{insights.avgLikelihood}</h3>
-          <p>Average Likelihood</p>
-        </div>
-        <div className="card">
-          <h3>{insights.avgRelevance}</h3>
-          <p>Average Relevance</p>
-        </div>
+      </div>
       </div>
       <div className={`chart-grid ${sidebarVisible ? 'sidebar-visible' : ''}`}>
+        <div className="chart-wrapper">
+          <div className='chart'>
+            <ScatterPlotColorScale3D data={filteredData} />
+          </div>
+        </div>
+        <div className="chart-wrapper">
+          <div className='chart'>
+            <SunburstChartSectorTopic data={filteredData} />
+          </div>
+        </div>
+        <div className="chart-wrapper">
+          <div className='chart'>
+            <ScatterMatrix data={filteredData} />
+          </div>
+        </div>
+        <div className="chart-wrapper">
         <div className='chart'>
-          <ScatterPlotColorScale3D data={filteredData} />
-          </div>
-          <div className='chart'>
-          <SunburstChartSectorTopic data={filteredData} />
-          </div>
-          <div className='chart'>
-          <ScatterMatrix data={filteredData} />
-          </div>
-          <div className='chart'>
           <ViolinPlot data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <Histogram data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <SunburstChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <BubbleChart3D data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <TreemapChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <DonutChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <BubbleChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <CorrelationHeatmap data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <FunnelChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <GaugeChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <PolarAreaChart data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <SankeyDiagram data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <ContourPlot data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <PolarScatterPlot data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <ParallelCategories data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <DotPlot data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <DensityHeatmap data={filteredData} />
-          </div>
-          <div className='chart'>
+        </div>
+        </div>
+        
+        <div className="chart-wrapper">
+        <div className='chart'>
           <DumbbellPlot data={filteredData} />
-          </div>
+        </div>
+        </div>
+        
+        
       </div>
-      <div className='credits_2' >Developed by Kavaskar😊</div>
+      <div className='credits_2'>Developed by Kavaskar😊</div>
     </div>
   );
 };

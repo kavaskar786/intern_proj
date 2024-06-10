@@ -15,7 +15,6 @@ const ViolinPlot = ({ data }) => {
   }));
 
   return (
-    <div className="chart-wrapper">
       <Plot
         data={traces}
         layout={{
@@ -37,7 +36,6 @@ const ViolinPlot = ({ data }) => {
         style={{ width: '100%', height: '100%' }}
         useResizeHandler={true}
       />
-    </div>
   );
 };
 

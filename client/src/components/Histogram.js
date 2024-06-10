@@ -5,7 +5,6 @@ const Histogram = ({ data }) => {
   const relevanceData = data.map(d => d.relevance);
 
   return (
-    <div className="chart-wrapper">
       <Plot
         data={[
           {
@@ -44,7 +43,6 @@ const Histogram = ({ data }) => {
         style={{ width: '100%', height: '100%' }}
         useResizeHandler={true}
       />
-    </div>
   );
 };
 

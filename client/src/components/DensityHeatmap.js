@@ -3,7 +3,6 @@ import Plot from 'react-plotly.js';
 
 const DensityHeatmap = ({ data }) => {
   return (
-    <div className="chart-wrapper">
       <Plot
         data={[
           {
@@ -32,7 +31,6 @@ const DensityHeatmap = ({ data }) => {
         style={{ width: '100%', height: '100%' }} // Adjust size to fit the grid layout
         useResizeHandler={true}
       />
-    </div>
   );
 };
 

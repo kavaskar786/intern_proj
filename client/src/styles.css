@@ -1,6 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
+  font-family: Arial, sans-serif; 
+  background-color: #ffffff;
+  background-image: url("../src/"); 
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -91,12 +92,10 @@ h1.sidebar-visible {
 }
 
 .card {
-  background-color: #fff;
-  border: 2px solid #65D3FD;
+  background-color: #65D3FD;
   border-radius: 5px;
   padding: 20px;
   text-align: center;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
   flex: 1;
   min-width: 200px;
@@ -109,12 +108,12 @@ h1.sidebar-visible {
 .card h3 {
   margin: 0;
   font-size: 24px;
-  color: #333;
+  color: #ffffff;
 }
 
 .card p {
   margin: 5px 0 0;
-  color: #777;
+  color: #ffffff;
 }
 
 .chart-container {
@@ -132,11 +131,12 @@ h1.sidebar-visible {
 }
 
 .chart-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 100px;
-  justify-items: center;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 60px;
   transition: margin-left 0.3s;
 }
 
@@ -146,9 +146,11 @@ h1.sidebar-visible {
 
 .chart{
   min-height: 7em;
-  max-height: 25em;
+  max-height: 45em;
+  height: 25em;
+  width: 25em;
   min-width: 7em;
-  max-width: 25em;
+  max-width: 45em;
 }
 .chart-wrapper {
   background-color: #fff;
@@ -158,24 +160,15 @@ h1.sidebar-visible {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  align-items: center;
 }
 
 .chart-wrapper:hover {
   transform: scale(1.025);
 }
 
-.insight {
-  margin-top: 15px;
-  color: #555;
-  font-style: italic;
-  width: 80px;
-  margin-left: 10px;
-}
+
 
 .filter {
   margin: 10px 0;
@@ -253,4 +246,147 @@ h1.sidebar-visible {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.dashboard-title {
+  font-size: 2em;
+  margin: 20px 0;
+  color: #065d7f;
+}
+.carousel-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  height: 10em;
+  background: #65d3fd;
+  border-radius: 10px;
+
+}
+.corousel1{
+  
+  
+ height: auto;
+ width: 100%;
+  
+
+}
+.carousel-slide {
+  min-width: 50px;
+  background: #65d3fd;
+  margin: 0 10px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  gap: 10px;
+}
+
+.carousel-slide img {
+  height: 8em;
+}
+
+.corousel_cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.corousel_cont.sidebar-visible {
+  margin-left: 260px;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+
+  .corousel1 {
+   width: 100%;
+  }
+
+  .corousel_cont {
+    flex-direction: column;
+    margin-left: 2.4em
+  }
+
+  .carousel-slide {
+    flex-direction: column;
+    width: auto;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-slide {
+    padding: 5px;
+  }
+
+  .carousel-slide img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 520px) {
+  .carousel-wrapper {
+    flex-direction: column;
+    min-width: 7em;
+    width: 100%;
+    max-width: 23em;
+    height: auto;
+  }
+
+  .corousel1 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px){
+  .corousel_cont{
+    margin-left: 0em;
+  }
+}
+
+@media (max-width: 360px){
+  .carousel-wrapper {
+    flex-direction: column;
+    min-width: 5em;
+    max-width: 20em;
+    height: auto;
+  }
+
+  .corousel1 {
+    min-width: 5em;
+    max-width: 20em;
+  }
+  .chart{
+    height: 13em;
+    width: 13em;
+  }
+  .App{
+    padding: 0;
+    padding-top: 30px;
+  }
+
 }

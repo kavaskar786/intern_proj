@@ -13,7 +13,7 @@ const CorrelationHeatmap = ({ data }) => {
   );
 
   return (
-    <div className="chart-wrapper">
+    
       <Plot
         data={[
           {
@@ -37,10 +37,9 @@ const CorrelationHeatmap = ({ data }) => {
           margin: { t: 40, b: 40, l: 40, r: 40 },
         }}
         config={{ responsive: false }}
-        style={{ width: '100%', height: '300%' }}
+        style={{ width: '100%', height: '100%' }}
         useResizeHandler={true}
       />
-    </div>
   );
 };
 

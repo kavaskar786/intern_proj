@@ -22,7 +22,6 @@ const SunburstChart = ({ data }) => {
   };
 
   return (
-    <div className="chart-wrapper">
       <Plot
         data={[chartData]}
         layout={{
@@ -44,7 +43,6 @@ const SunburstChart = ({ data }) => {
         style={{ width: '100%', height: '100%' }}
         useResizeHandler={true}
       />
-    </div>
   );
 };
 
