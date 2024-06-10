@@ -113,7 +113,7 @@ const App = () => {
         <h2>Filters</h2>
         <Filters setFilters={setFilters} filters={filters} filterOptions={filterOptions} handleFilterChange={handleFilterChange} />
       </div>
-      <h1 className="dashboard-title">Dashboard</h1>
+      <h1 className={sidebarVisible ? 'sidebar-visible' : ''}>Interactive Dashboard</h1>
       <div className={`corousel_cont ${sidebarVisible ? 'sidebar-visible' : ''}`}>
       <div className="carousel-wrapper">
         <div className='corousel1'>

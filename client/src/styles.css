@@ -308,10 +308,10 @@ h1.sidebar-visible {
 
 
 /* Responsive Styling */
-@media (max-width: 768px) {
+@media (max-width: 930px) {
   .carousel-wrapper {
     flex-direction: column;
-    width: 100%;
+    width: 95%;
     height: auto;
   }
 
@@ -342,17 +342,32 @@ h1.sidebar-visible {
   .carousel-wrapper {
     flex-direction: column;
     min-width: 7em;
-    width: 100%;
-    max-width: 23em;
+    width: 95%;
     height: auto;
   }
 
   .corousel1 {
     width: 100%;
   }
+  .chart{
+    height: 24em;
+    width: 24em;
+  }
+  .App{
+    padding: 0;
+    padding-top: 30px;
+  }
+  
 }
 
 @media (max-width: 480px) {
+  .carousel-wrapper {
+    flex-direction: column;
+    min-width: 5em;
+    width: 95%;
+    height: auto;
+  }
+
   .carousel-slide {
     padding: 5px;
   }
@@ -361,12 +376,22 @@ h1.sidebar-visible {
     max-width: 80px;
     max-height: 80px;
   }
+
+  .chart{
+    height: 20em;
+    width: 20em;
+  }
+  .App{
+    padding: 0;
+    padding-top: 30px;
+  }
 }
 
 @media (max-width: 400px){
   .carousel-wrapper {
     flex-direction: column;
     min-width: 5em;
+    width: 100%;
     max-width: 20em;
     height: auto;
   }
